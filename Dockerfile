@@ -1,8 +1,19 @@
 FROM golang:latest
-RUN mkdir /app
-ADD ./pkg /app/
+MAINTAINER Tommy Huang
+
+#Set destination for copy
 WORKDIR /app
-RUN go get "github.com/gorilla/mux"
-RUN go get "github.com/gin-gonic/gin"
+
+#Download GO modules
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY *.go ./
+
+#Build
+RUN CGO_ENABLED=0 GOOS=linux go build -o /go-gin-microservice
+ADD ./pkg /app/
+
+CMD ["/go-gin-microservice"]
+RUN go get .
 RUN go build -o main .
-CMD ["/app/main"]
