@@ -15,5 +15,3 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /go-gin-microservice
 ADD ./pkg /app/
 
 CMD ["/go-gin-microservice"]
-RUN go get .
-RUN go build -o main .
