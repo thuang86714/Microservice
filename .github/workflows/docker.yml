@@ -1,4 +1,4 @@
-name: build a dockerfile and deploy it onto AWS with terraform
+name: "docker and terraform"
 on:
   push:
     branches:
