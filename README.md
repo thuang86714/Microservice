@@ -1,2 +1,2 @@
 # Microservice
-Go with Gin framework, Terraform, Github Actions, Docker, AWS
+Go with Gin framework(Restful API), Terraform, Github Actions, Docker, AWS
