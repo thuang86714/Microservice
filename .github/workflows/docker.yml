@@ -3,8 +3,7 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'src/**'
+    
 env:
   TF_WORKPLACE: "GitHub-Actions"
   TF_CLOUD_ORGANIZATIO: "Tommys-Private-Projects"
