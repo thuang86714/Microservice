@@ -7,6 +7,7 @@ on:
 env:
   TF_WORKPLACE: "GitHub-Actions"
   TF_CLOUD_ORGANIZATIO: "Tommys-Private-Projects"
+  CONFIG_DIRECTORY: "./"
 jobs:
   Docker:
     runs-on: ubuntu-latest
