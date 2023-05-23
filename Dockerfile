@@ -11,7 +11,7 @@ RUN go mod download
 COPY *.go ./
 
 #Build
-RUN GOOS=linux go build -o go-gin-microservice .
+RUN GOOS=linux go build -o ./go-gin-microservice
 EXPOSE 8080
 
 
