@@ -5,13 +5,13 @@ MAINTAINER Tommy Huang
 WORKDIR /app
 
 #Download GO modules
-COPY go.mod go.sum ./
+COPY go.mod go.sum .
 RUN go mod download
 
 COPY *.go ./
 
 #Build
-RUN CGO_ENABLED=0 GOOS=linux go build -o /go-gin-microservice
+RUN GOOS=linux go build -o ./go-gin-microservice
 EXPOSE 8080
 
 
