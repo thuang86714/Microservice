@@ -8,7 +8,7 @@ WORKDIR /app
 COPY go.mod go.sum .
 RUN go mod download
 
-COPY *.go ./
+COPY src/*.go ./
 
 #Build
 RUN GOOS=linux go build src/main.go -o ./go-gin-microservice
