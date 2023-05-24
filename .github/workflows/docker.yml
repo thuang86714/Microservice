@@ -3,8 +3,7 @@ on:
   push:
     branches:
       - main
-    paths:
-      - src/*.go
+    
     
 env:
   TF_WORKSPACE: "GitHub-Actions"
@@ -76,15 +75,13 @@ jobs:
         id: plan-output
         with:
           plan: ${{ fromJSON(steps.plan-run.outputs.payload).data.relationships.plan.data.id }}
-  
-        
         
       - name: Create Apply Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: apply-run
         with:
           workspace: ${{ env.TF_WORKSPACE }}
-          configuration_version: ${{ steps.apply-upload.outputs.configuration_version_id }}
+          configuration_version: ${{ steps.plan-upload.outputs.configuration_version_id }}
   
       - name: Apply
         uses: hashicorp/tfc-workflows-github/actions/apply-run@v1.0.0
