@@ -5,7 +5,7 @@ on:
       - main
     
 env:
-  TF_WORKPLACE: "GitHub-Actions"
+  TF_WORKSPACE: "GitHub-Actions"
   TF_CLOUD_ORGANIZATION: "Tommys-Private-Projects"
   CONFIG_DIRECTORY: "./"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
