@@ -44,7 +44,16 @@ resource "aws_launch_configuration" "example" {
 
   security_groups = ["${aws_security_group.instance.id}"]
 
-  user_data = file(script/setup.sh)
+  user_data = <<-EOF
+                #!/bin/bash
+                curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+                sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+                sudo apt-get update
+                apt-cache policy docker-ce
+                sudo apt-get install -y docker-ce
+                sudo docker pull forbsey/go-docker:first
+                sudo docker run -d -p 8080:8080 tommyhuanghhh/microservice:lastest
+                EOF
 
   lifecycle {
     create_before_destroy = true
