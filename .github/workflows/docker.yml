@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - src/*.go
     
 env:
   TF_WORKSPACE: "GitHub-Actions"
